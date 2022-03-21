@@ -459,7 +459,9 @@ declare module '@rjsf/core/lib/components/fields/SchemaField' {
     export type SchemaFieldProps<T = any> = Pick<
         FieldProps<T>,
         'schema' | 'uiSchema' | 'idSchema' | 'formData' | 'errorSchema' | 'registry' | 'formContext'
-    >;
+    > & {
+        shouldUpdate?: boolean | ((nextProps?: any, nextState?: any) => boolean)
+    };
 
     export default class SchemaField extends React.Component<SchemaFieldProps> {}
 }
